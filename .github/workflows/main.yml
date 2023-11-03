@@ -1,0 +1,33 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Docker
+      run: |
+        docker build -t my-app .
+        docker tag my-app my-docker-username/my-app:latest
+      env:
+        DOCKER_USERNAME: ${{ secrets.ajaytwilight1@gmail.com }}
+        DOCKER_PASSWORD: ${{ secrets.SmartWork2123 }}
+
+    - name: Log in to Docker Hub
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+    - name: Push Docker image
+      run: docker push my-docker-username/my-app:latest
+
+    - name: Deploy to Staging
+      # Add deployment steps as needed (e.g., Kubernetes deployment).
+
+
