@@ -32,7 +32,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-       context: ./Dockerhub
+       context: ./Docker
           
        push: true
        tags: ajuuu/firstcicd:tagname
