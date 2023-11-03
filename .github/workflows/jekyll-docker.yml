@@ -36,4 +36,4 @@ jobs:
        context: ./Dockerhub
           
        push: true
-       tags: docker push new-repo:tagname
+       tags: ajuuu/firstcicd:tagname
